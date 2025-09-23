@@ -55,7 +55,7 @@ body {
     backdrop-filter: blur(2px);
     border: 1px solid rgba(255, 255, 255, 0.326);
 }
-.index_welcome{
+.index_welcome {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -64,23 +64,21 @@ body {
     height: 100%;
     gap: 1rem;
     color: rgb(253, 254, 255);
-    transition: align-items 0s 2s;
 }
-.index_welcome:has(.index_btn:hover),
-.index_welcome:has(.hover_pad:hover) {
-    --btn-or-pad-hover: 1;
-}
-.index_sub{
-    margin: calc(3.5rem + 6vh) auto 0;
-    max-width: 34ch;
-    text-align: center;
+.index_sub {
+    margin: 0;
     font-size: clamp(1rem, 4vw, 2rem);
-    color: #fff;
     text-shadow: 0 0 8px #2583ff;
-    line-height: 1.25;
+    transition: text-shadow 0.4s ease;
+    max-width: 42ch;
+    text-align: center;
+    min-height: 1.2em;
+    line-height: 1.2;
+    position: relative;
+    padding: 0 2rem;
 }
-.index_btn{
-    /* display: inline-block;
+.index_btn {
+    display: inline-block;
     text-decoration: none;
     color: rgb(255, 255, 255);
     font-size: clamp(0.8rem, 2.5vw, 1.5rem);
@@ -91,71 +89,72 @@ body {
     font-family: Calibri;
     transition: background 0.3s ease;
     backdrop-filter: blur(1.6px);
-    position: relative; */
-    position: absolute;
-    left: 50%;
-    top: 30%;
-    transform: translate(-50%, -50%);
-    display: inline-block;
-    text-decoration: none;
-    color: #fff;
-    font-family: Calibri, system-ui, sans-serif;
-    font-size: clamp(.9rem, 2.5vw, 1.4rem);
-    border: 1px solid rgba(159, 164, 220, .5);
-    border-radius: .5rem;
-    padding: .6rem 1.2rem;
-    background: linear-gradient(rgba(134, 139, 191, .5), rgba(125, 121, 192, .5));
-    backdrop-filter: blur(1.6px);
-    transition: background .25s ease, transform .12s ease;
-    z-index: 3;
+    position: relative;
+    z-index: 2;
 }
-.prefix {
-    display: inline-block;
-    max-width: 0;
-    opacity: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    will-change: max-width, opacity;
-    transition:
-    max-width .22s ease,
-    opacity .22s ease .02s;
-}
-
-/* .index_btn:hover{
+.index_btn:hover {
     color: aliceblue;
     background: rgba(0, 128, 255, 0.6);
     backdrop-filter: blur(1.6px);
-    justify-content: flex-start;
-} */
-/* .index_sub::before{
+}
+.index_sub {
+    margin: 0;
+    font-size: clamp(1rem, 4vw, 2rem);
+    /* ?hover???????????.index_sub??????????? */
+    text-shadow: 0 0 8px #2583ff;
+    transition: text-shadow 0.4s ease;
+    max-width: 42ch;
+    text-align: center;
+    min-height: 1.2em;
+    line-height: 1.2;
+    position: relative;
+    padding: 0 2rem;
+    color: rgb(253, 254, 255); 
+}
+.index_sub::before {
     content: "Let's Enter ";
     display: inline-block;
     max-width: 0;
     opacity: 0;
     overflow: hidden;
-    opacity: calc(var(--btn-or-pad-hover, 0));
-    transition: max-width .15s ease, opacity .15s ease;
+    overflow: visible;
     white-space: nowrap;
-} */
-.index_welcome:has(.index_btn:hover) .index_sub{
-    text-shadow: 0 0 12px #d4f456,
-        0 0 20px #e6db98;
+    vertical-align: top;
+    transition: max-width 0.4s ease 0.1s, opacity 0.4s ease 0.1s;
+    padding-right: 1ch;
+    margin-right: -1ch;
+}
+.index_welcome:has(.index_btn:hover) .index_sub,
+.index_welcome:has(.hover_pad:hover) .index_sub {
+    text-shadow: 0 0 9px #d4f456, 0 0 15px #e6db98;
     color: #ffffff;
 }
-.index_welcome:has(.index_btn:hover) .prefix {
-    max-width: 10ch;
+.index_welcome:has(.index_btn:hover) .index_sub::before,
+.index_welcome:has(.hover_pad:hover) .index_sub::before {
+    max-width: 15ch;
     opacity: 1;
 }
-.welcome .prefix {
-    transition-delay: .0s;
+.index_welcome:has(.index_btn:hover) .index_sub .main-text,
+.index_welcome:has(.hover_pad:hover) .index_sub .main-text {
+    transform: translateX(0.5ch);
 }
 
-.welcome:hover .prefix {
-    transition-delay: 0s;
-}
 
-.welcome:not(:hover) .prefix {
-    transition-delay: .18s;
+.hover_pad {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(50% - 3rem);
+    width: calc(100% - 2rem);
+    max-width: 250px;
+    height: 50px;
+    pointer-events: auto;
+    background: transparent;
+    z-index: 1;
+    border-radius: 0.5rem;
+}
+.index_welcome {
+    min-width: min(100%, 400px);
 }
 
 .page_overlay{
@@ -334,7 +333,7 @@ body {
     border-radius: 10px;
     padding: 0.6rem 1rem;
     word-spacing: nowrap;
-    
+
 }
 
 .info-bar-right {
